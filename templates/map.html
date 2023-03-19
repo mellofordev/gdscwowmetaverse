@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maps</title>
+    <style>
+        body{
+            margin: 0;
+            color:white;
+            background-color: rgb(0,0,0,0.85);
+        }
+
+        /* .base{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        } */
+        
+        .overlay{
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            
+           
+        }
+        .container{
+            display: grid;
+            grid-column-end: auto;
+            grid-row: auto;
+            margin:40px;
+            height: 200px;
+            width:300px;
+            background-color: rgba(21, 20, 20, 0.85);
+            border-radius: 15px;
+            transform: scale(1);
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes anim{
+            from{
+                transform: scale(1);
+            }
+            to{
+                transform: scale(1.2);
+                
+            }
+        }
+        .container:hover{
+            background-color: aliceblue;
+            color: black;
+            animation-name: anim;
+            transform: scale(1.2);
+            animation-duration: 0.5s;
+            border-radius: 20px;
+
+        }
+        .nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            
+        }
+        @media (max-width:600px){
+            .overlay{
+                flex-direction: column;
+            }
+            .container{
+                height: 150px;
+                width:150px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="base">
+        <div class="nav">
+            <a href="/" style="margin:15px;">close</a>
+            
+        </div>
+        <div class="overlay">
+            {% for i in ["Theatre","Station","Location"] %}
+            <div class="container">
+                <h1>{{i}}</h1>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</body>
+</html>

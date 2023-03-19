@@ -1,0 +1,11 @@
+Model Information:
+* title:	Sofa Parte1
+* source:	https://sketchfab.com/3d-models/sofa-parte1-b7d9806a1c7d4d95802d1ca49b866ef4
+* author:	Raul.Puga (https://sketchfab.com/Raul.Puga)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Sofa Parte1" (https://sketchfab.com/3d-models/sofa-parte1-b7d9806a1c7d4d95802d1ca49b866ef4) by Raul.Puga (https://sketchfab.com/Raul.Puga) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

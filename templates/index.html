@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Developed by Sreedhar  -->
+    <meta charset="utf-8" />
+    <title>GDSC WoW metaverse</title>
+    <link rel="icon" type="image/icon" href="../static/assets/wow.png">
+    <meta name="discription" content="Enjoy & watch GDSC WoW '23 live event in metaverse">
+    <meta name="keywords" content="GDSC, GDSCWOW, WoW23, gdscwow, google student club, wow23, googlewow23, getsetwow">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="../static/websurfaces.umd.js"></script>
+	  <script src="https://unpkg.com/aframe-environment-component@1.3.1/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
+    <script src="../static/gui.js"></script>
+  </head>
+  <style>
+  a{
+    text-decoration: none;
+  }
+	.a-enter-vr-button{
+		display: none;
+	}
+  .a-enter-ar-button{
+		display: none;
+	}
+  .customplayer{
+    position: absolute;
+    bottom:20px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    height: 40px;
+    width:auto;
+    z-index: 999;
+  }
+  .customLoad{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:black;
+    height: 100vh;
+    z-index: 1000;
+    color: white;
+  }
+  .start{
+    background-color: white;
+    color:black;
+    border-radius:10px;
+    text-decoration: solid;
+    opacity: 1;
+  }
+
+  @keyframes rotateimg{
+    from{
+      transform:rotate(0deg);
+    }to{
+      transform: rotate(360deg);
+    }
+  }
+  .rotator{
+    animation:  rotateimg infinite 3s linear;
+    animation-duration: 3s;
+    animation-delay: 0ms;
+  }
+  .hide{
+    display: none;
+  }
+  </style>
+  <body>
+    <div id="customloader" class="customLoad">
+      <img class="rotator" src="../static/assets/wow.png"/>
+      <h1>GDSC WOW'23</h1>
+      <h2>metaverse loading...</h2>
+    </div>
+    <a-scene loading-screen="enabled:false;dotsColor:white;backgroundColor:black;">
+      <a-assets>
+        <a-asset-item id="googlelogo" src="../static/assets/scene.gltf"></a-asset-item>
+        <a-asset-item id="window" src="../static/assets/french_window/scene.gltf"></a-asset-item>
+        <a-asset-item id="tvstand" src="../static/assets/tv_stand_low_poly/scene.gltf"></a-asset-item>
+        <a-asset-item id="ceillight" src="../static/assets/wooden_ceiling_lamp/scene.gltf"></a-asset-item>
+        <a-asset-item id="glasswindow" src="../static/assets/glass_window/scene.gltf"></a-asset-item>
+        <a-asset-item id="glassroof" src="../static/assets/glass_roof/scene.gltf"></a-asset-item>
+        <a-asset-item id="couch" src="../static/assets/couch/scene.gltf"></a-asset-item>
+        <audio id="startup" src="../static/assets/icons/starup.mp3"></audio>
+        <audio id="clickaudio" src="../static/assets/icons/clicksound.mp3"></audio>
+    </a-assets>
+      <a-entity
+        wasd-controls="acceleration: 20;"
+        camera="active: true"
+        look-controls="pointerLockEnabled: false"
+        position="0 1.6 0"
+        universal-controls="movementControls:checkpoint;" checkpoint-controls="mode:animate;"
+      >
+        
+        <a-gui-cursor audiostart="play:true"  fuse="false" hover-color="black" raycast="objects:[gui-interactable]"></a-gui-cursor>
+      </a-entity>
+      
+	  <a-entity environment="preset:default;groundTexture:walkernoise;"></a-entity>
+    <a-entity gltf-model="#googlelogo" position="-4.783 1.268 -3.852" rotation="0.000 34.340 0.000"></a-entity>
+    <a-entity gltf-model="#ceillight" position="-0.045 5.863 -1.198" rotation="0.000 0.000 0.000" scale="4.370 2.180 2.00"></a-entity>
+    <!-- <a-light id="light" type="point" intensity="0.260" color="#ffde66" position="0 4.767 0"></a-light> -->
+    <a-entity gltf-model="#window"  position="7.365 -0.096 -9.606" rotation="0.000 -32.550 0.000" scale="-0.040 0.030 0.110"></a-entity>
+    <a-entity gltf-model="#window"  position="-7.109 0.074 -10.174" rotation="0.000 200.000 0.000" scale="-0.040 0.030 0.110"></a-entity>
+    <a-entity id="wallcenter" geometry="primitive: box; height: 10; width: 10" position="0.000 1.600 -9" material="side: double;color:gray;"></a-entity>
+    <a-entity id="wallleft" geometry="primitive: box; height: 10; width: 10" position="-8.158 1.620 -3.097" rotation="0.00 90.00 0.00" material="side: double;color:gray;"></a-entity>
+    <a-entity id="wallext" geometry="primitive: box; height: 10; width: 10" position="-8.158 1.620 9.886" rotation="0.00 90.00 0.00" material="side: double;color:gray;"></a-entity>
+    <a-entity id="glass_window" gltf-model="#glasswindow" position="-2.795 0.073 4.900" rotation="0.00 0.00 0.00" scale="1.000 1.47 1.000"></a-entity>
+    <a-entity id="glass_window" gltf-model="#glasswindow" position="12.795 0.073 14.660" rotation="0.00 0.00 0.00" scale="1.000 1.550 4.4100"></a-entity>
+    <a-entity id="glass_window" gltf-model="#glasswindow" position="5.466 0.073 9.751" rotation="0.00 90.00 0.00" scale="1.000 1.650 4.4100"></a-entity>
+    <a-entity id="wallright"  geometry="primitive: box; height: 10; width: 10" position="8.158 1.620 -3.097" rotation="0.00 90.00 0.00" material="side: double;color:gray;"></a-entity>
+    <a-entity id="roof" geometry="primitive:box; height:13.710;width:18.050;" position="0.079 6.584 -4.253" rotation="90.000 0.000 0.000" material="src:https://t3.ftcdn.net/jpg/00/61/27/98/360_F_61279862_uEhCIRbzjlHXw9Ugc47v8Xcg5CdGHLG1.jpg;side: double;color:gray;"></a-entity>
+    <a-entity gltf-model="#glassroof" position="0.079 7.115 8.730" scale="2.7 2.000 2.7"></a-entity>
+    <a-entity id="roofring" geometry="primitive:torus;radiusInner:5.110;radiusOuter:11.300;depth:1;" position="0.079 7.115 8.730" rotation="90.000 0.000 0.000" scale="8.170 8.190 2.420" material="src:https://t3.ftcdn.net/jpg/00/61/27/98/360_F_61279862_uEhCIRbzjlHXw9Ugc47v8Xcg5CdGHLG1.jpg;side: double;color:gray;"></a-entity>
+    
+   
+    <a-entity id="floor" geometry="primitive:box; height:13.710;width:18.050;" position="0.079 -0.436 -4.253" rotation="90.000 0.000 0.000" material="src:../static/assets/floormarble.jpg;side: double;color:#686f82;"></a-entity>
+    <a-entity id="floorext" geometry="primitive:box; height:13.710;width:18.050;" position="0.079 -0.436 9.45" rotation="90.000 0.000 0.000" material="src:../static/assets/floormarble.jpg;side: double;color:#686f82;"></a-entity>
+    {%for light in ["6.508 5.953 -6.657" ,"6.508 5.953 1.026","-6.508 5.953 -6.657","-6.508 5.953 1.026"]%}
+      <a-light class="light" type="point" color="#ffde66" intensity="0.125" position="{{light}}"></a-light>
+    {%endfor%}
+
+    <a-entity
+        websurface="url:https://www.youtube.com/embed/lTnKj5PJSaA?enablejsapi=1&fullscreen=1&version=3&playerapiid=ytplayer; width:7; height:5;"
+        position="0.000 3.424 -8.457"
+		isInteractable=""
+      ></a-entity>
+      <a-entity gltf-model="#tvstand" position="0.167 0.024 -6.741" scale="5.090 1.900 2.080"></a-entity>
+      <a-entity gltf-model="#couch" position="-0.374 0.049 3.548" rotation="0.000 180.000 0.000"></a-entity>
+      
+      {%for box in bill_board %}
+        <a-light id="walllighting" type="spot" angle="15" penumbra="0.220" color="white" position="-7.255 6.970 {{bill_board[box][0]}}" rotation="-90.000 0.000 0.000"></a-light>
+        <a-rounded id="walldisc" height="0.5" width="1.850" radius="0.210" opacity="0.5" color="#000" position="-6.255 1.052 {{bill_board[box][0]}}" rotation="-28.00 90.000 0.00">
+           <a-entity id="disctext" text="value:{{bill_board[box][2]}};color:white;align:center;" scale="2.3 2.3 2.3"></a-entity>
+        </a-rounded>
+        <a-box height="1"  width="1" color="white" position="-6.255 1.970 {{bill_board[box][0]}}" animation="property:rotation;to:0 360 0;loop:true;dur:10000;" material="src:{{bill_board[box][1]}};"></a-box>
+      {%endfor%}
+      <a-gui-flex-container  position="0.000 0.800 -1.693" panel-rounded="0.5" rounded opacity="0.5" panel-color="#000"  rotation="-28.660 0.000 0.000" scale="0.570 0.350 1.000"    flex-direction="row" height="0.98" width="5" justify-content="center" align-items="center">
+        <a-gui-icon-button  border-color="#000" color="#000" background-color="#000" hover-color="#505050" height="0.7" width="1.2" icon="f3c5" icon-font="../static/assets/icons/fa-solid-900.ttf" id="map" gap="0.125"  onclick="openmap(0)" microinteraction></a-gui-icon-button>
+        <a-gui-icon-button  border-color="#000" color="#000" background-color="#000" hover-color="#505050" height="0.7" width="1.2" value="lights off" icon="f0eb" icon-font="../static/assets/icons/fa-solid-900.ttf" id="lswitch" onclick="lights()" gap="0.125" microinteraction></a-gui-icon-button>
+        <a-gui-icon-button  border-color="#000" color="#000" background-color="#000" hover-color="#505050" height="0.7" width="1.2" value="play" icon="f04b" icon-font="../static/assets/icons/fa-solid-900.ttf" onclick="fun()" gap="0.125" audiostart="play:false" microinteraction></a-gui-icon-button>
+      </a-gui-flex-container>
+
+      <a-rounded height="2.5" width="3" visible="false" class="map-model"  position="0.002 2.245 -3.500" scale="1.730 1.000 1.000" id="mapmodel" color="black" opacity="0.820"  height="2" width="3" flex-direction="column" justify-content="center" align-items="center">
+        {%for l in location%}
+          <a-rounded  height="1.240" width="0.840" radius="0.070" position="{{location[l][0]}} -0.087 0.098" color="white">
+            <a-image id="imgList-{{l}}" position="0.000 0.000 0.001" height="1.270" width="0.840" material="radius:0.070;" src="{{location[l][3]}}"></a-image>
+            <a-rounded id="text-border" position="-0.187 -0.473 0.002" height="0.280" width="0.460" radius="0.110" opacity="0.5" color="#000">
+              <a-entity id="mapbox-{{l}}" text="value:{{location[l][1]}};color:white;align:center" scale="1.430 1.430 1.430" width="4"  position="0.000 0.00 0.018"></a-entity>
+            </a-rounded>
+            <a-gui-icon-button id="goto-{{l}}" border-color="black"background-color="black" height="0.2" width="1.2" icon="f0c1" icon-font="../static/assets/icons/fa-solid-900.ttf" role="button"  position="0.288 -0.446 0.000" scale="0.320 0.550 1.00" onclick='window.open("https://instagram.com/{{location[l][2]}}")'  microinteraction></a-gui-icon-button>
+          </a-rounded>
+        {%endfor%}
+        <a-gui-icon-button border-color="black"background-color="black" height="0.2" width="1.2" icon="f00d" icon-font="../static/assets/icons/fa-solid-900.ttf" role="button"  position="-1.055 -0.980 0.000" scale="0.320 0.550 1.00" onclick="openmap(1)" microinteraction></a-gui-icon-button>
+        <a-gui-icon-button border-color="black"background-color="black" height="0.2" width="1.2" icon="f061" icon-font="../static/assets/icons/fa-solid-900.ttf" role="button"  position="-0.778 -0.980 0.000" scale="0.320 0.550 1.00" onclick="loadloc()" microinteraction></a-gui-icon-button>
+      </a-rounded>
+      
+    </a-scene>
+    
+  </body>
+  <script>
+
+    const mobile = navigator.userAgentData.mobile;
+    var counter =1;
+    if(mobile){
+      window.addEventListener("deviceorientation",function(e){
+       if(e.alpha || e.beta || e.gamma){
+        console.log("found gyroscope!");
+       }else{
+         alert("Your mobile is not having gyro , \n plz use mobile with gyro for immersive experience")
+       }
+      }); 
+    } 
+
+    document.addEventListener("DOMContentLoaded",function(){
+      var scene = document.querySelector('a-scene');
+      scene.addEventListener("loaded",(function render(){
+      document.getElementById("customloader").style.display="none";
+
+    }));
+    })
+
+    if(navigator.brave){
+      alert('Try to open the website in Chrome /Firefox for immersive experience !');
+    }
+    AFRAME.registerComponent("audiostart",{
+      scheme:{
+        play:{type:'string',default:'true'}
+      },
+      init:function(){
+        var audio = document.querySelector("#startup");
+        var refernce_ = this;
+        this.el.addEventListener("click",function(){
+            
+            if(refernce_.data.play=='true'){
+              audio.play();
+              audio.volume="0.4"
+            }else{
+              audio.pause();
+
+            }
+        })
+      }
+    });
+    AFRAME.registerComponent("microinteraction",{
+      init:function(){
+        var clicker = document.querySelector("#clickaudio");
+        this.el.addEventListener("click",function(){
+           clicker.play();
+        })
+      }
+    });
+    AFRAME.registerComponent("teleport",{
+      init:function(){
+        var checkpoint = document.querySelector("#checkpoint");
+        console.log(this.el);
+        this.el.addEventListener("click",function(){
+         
+        })
+      }
+    });
+    function fun(){
+       var yt_player = document.getElementsByClassName("youtube-player");
+       console.log(yt_player[0]);
+
+       yt_player[0].contentWindow.postMessage(JSON.stringify(
+      { event: 'command', func: 'playVideo' }), '*');
+      
+       console.log(yt_player[0].contentWindow)
+      }
+      function lights(){
+        var light = document.getElementsByClassName("light");
+        var lswitch = document.getElementById("lswitch"); 
+        var current = lswitch.getAttribute("value");
+
+        if(current=="lights off"){
+            for(var i=0 ; i<light.length;i++){
+              light[i].setAttribute("color","black");
+            }
+            lswitch.setAttribute("value","lights on");
+            
+        }else{
+          for(var i=0 ; i<light.length;i++){
+              light[i].setAttribute("color","#ffde66");
+            }
+            lswitch.setAttribute("value","lights off");
+        }
+      }
+      function openmap(isclose){
+
+        var mapmodel = document.getElementById("mapmodel");
+        if(isclose==1){
+          mapmodel.setAttribute("visible","false");
+        }else{
+          mapmodel.setAttribute("visible","true");
+        }
+      }
+      function loadloc(){
+        var datas=[];
+        var goto=[];
+        var imgs=[];
+        var location_data=[];
+        for(var i =0;i<3;i++){
+          datas.push(document.getElementById(`mapbox-${i}`));
+          goto.push(document.getElementById(`goto-${i}`))
+          imgs.push(document.getElementById(`imgList-${i}`))
+        }
+        fetch(`/location/${counter}`,{
+          method:'GET',
+          headers:{
+            'content-type':'application/json'
+          }
+        })
+        .then(response=>response.json())
+        .then(data=>{
+          location_data=data;
+          for(var i=1;i<=5;i++){
+            imgs[i-1].setAttribute("animation",`property:opacity;from:1;to:0;dur:2000;easing:linear;`)
+            datas[i-1].setAttribute("text",`value:${location_data[i].name};color:white;align:center`)
+            goto[i-1].setAttribute("onclick",`window.open("https://instagram.com/${location_data[i].instagram}")`)
+            imgs[i-1].setAttribute("src",`${location_data[i].bg_url}`)
+            imgs[i-1].setAttribute("animation",`property:opacity;from:0;to:1;dur:2000;easing:linear;`)
+          }
+        })
+        .catch(err=>{
+          console.log(err);
+        })
+        counter=counter+1;
+        if(counter>5){counter=1;}
+      }    
+  </script>
+</html>
